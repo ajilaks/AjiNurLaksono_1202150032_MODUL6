@@ -18,14 +18,14 @@ import java.util.List;
  */
 
 public class komenAdapter extends RecyclerView.Adapter<komenAdapter.ViewHolder> {
-    String useremail;
-    String url;
-    Context context;
-    List<komenModel> MainImageUploadInfoList;
+    String useremail; //inisiasi variable
+    String url; //inisiasi variable
+    Context context; //inisiasi variable
+    List<komenModel> MainImageUploadInfoList; //inisiasi variable
 
     public komenAdapter(Context context, List<komenModel> TempList) {
 
-        this.MainImageUploadInfoList = TempList;
+        this.MainImageUploadInfoList = TempList; //refrensi variable
 
         this.context = context;
     }
@@ -33,9 +33,9 @@ public class komenAdapter extends RecyclerView.Adapter<komenAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.komen_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.komen_item, parent, false);  //refrensi variable
 
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view); //refrensi variable ke holder
 
         return viewHolder;
     }
@@ -43,8 +43,8 @@ public class komenAdapter extends RecyclerView.Adapter<komenAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         komenModel UploadInfo = MainImageUploadInfoList.get(position);
-        holder.komentarUSer.setText(UploadInfo.getKomentar());
-        holder.namaUser.setText(UploadInfo.getUserKomen());
+        holder.komentarUSer.setText(UploadInfo.getKomentar()); //inisiasi ke holder
+        holder.namaUser.setText(UploadInfo.getUserKomen()); //inisiasi ke holder
 
         //Loading image from Glide library.
         //Glide.with(context).load(url).into(holder.imageView);

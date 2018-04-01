@@ -23,33 +23,33 @@ import java.util.List;
  */
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
-    String useremail;
-    Context context;
-    List<FeedData> MainImageUploadInfoList;
+    String useremail; //inisiasi variable
+    Context context; //inisiasi variable
+    List<FeedData> MainImageUploadInfoList; //inisiasi variable
 
     public FeedAdapter(Context context, List<FeedData> TempList) {
 
-        this.MainImageUploadInfoList = TempList;
+        this.MainImageUploadInfoList = TempList; //inisiasi variable
 
-        this.context = context;
+        this.context = context; //inisiasi variable
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, parent, false);//refrensi variable
 
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);//refrensi variable
 
-        return viewHolder;
+        return viewHolder; //return holder
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        FeedData UploadInfo = MainImageUploadInfoList.get(position);
-        holder.imageNameTextView.setText(UploadInfo.getImageName());
-        holder.user.setText(Dasboard.emailUser);
-        useremail = UploadInfo.getUserImage();
+        FeedData UploadInfo = MainImageUploadInfoList.get(position); //refrensi variable
+        holder.imageNameTextView.setText(UploadInfo.getImageName()); //refrensi variable
+        holder.user.setText(Dasboard.emailUser); //refrensi variable
+        useremail = UploadInfo.getUserImage(); //refrensi variable
         //Loading image from Glide library.
         Glide.with(context).load(UploadInfo.getImageURL()).into(holder.imageView);
     }
@@ -61,16 +61,16 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView user;
-        public ImageView imageView;
-        public TextView imageNameTextView;
+        public TextView user; //set variable
+        public ImageView imageView; //set variable
+        public TextView imageNameTextView; //set variable
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            imageView = (ImageView) itemView.findViewById(R.id.imageView1);
-            user = (TextView) itemView.findViewById(R.id.user);
-            imageNameTextView = (TextView) itemView.findViewById(R.id.ImageNameTextView1);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView1); //refrensi variable
+            user = (TextView) itemView.findViewById(R.id.user); //refrensi variable
+            imageNameTextView = (TextView) itemView.findViewById(R.id.ImageNameTextView1); //refrensi variable
             itemView.setOnClickListener(this);
         }
 
@@ -78,14 +78,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         public void onClick(View view) {
             int mPosition = getLayoutPosition();
 // Use that to access the affected item in mWordList.
-            String element = MainImageUploadInfoList.get(mPosition).toString();
-            String uri = MainImageUploadInfoList.get(mPosition).getImageURL();
-            String nama = MainImageUploadInfoList.get(mPosition).getImageName();
-            Intent i = new Intent(view.getContext(), DetailGambar.class);
-            i.putExtra("useremail",useremail);
-            i.putExtra("url",uri);
-            i.putExtra("nama",nama);
-            view.getContext().startActivity(i);
+            String element = MainImageUploadInfoList.get(mPosition).toString(); //refrensi variable
+            String uri = MainImageUploadInfoList.get(mPosition).getImageURL(); //refrensi variable
+            String nama = MainImageUploadInfoList.get(mPosition).getImageName(); //refrensi variable
+            Intent i = new Intent(view.getContext(), DetailGambar.class); //refrensi variable
+            i.putExtra("useremail",useremail); //put extra
+            i.putExtra("url",uri); //put extra
+            i.putExtra("nama",nama); //put extra
+            view.getContext().startActivity(i); //put extra
         }
     }
 }

@@ -102,9 +102,9 @@ public class DetailGambar extends AppCompatActivity {
                     komenList.add(imageUploadInfo); //add data ke listviews
                 }
 
-                adapter = new komenAdapter(DetailGambar.this,komenList);
+                adapter = new komenAdapter(DetailGambar.this,komenList);//set adapter
 
-                recyclerView.setAdapter(adapter);
+                recyclerView.setAdapter(adapter); //set adapter
 
                 // Hiding the progress dialog.
 

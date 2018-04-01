@@ -6,9 +6,9 @@ package com.oji.ajinurlaksono_1202150032_modul6;
 
 public class komenModel {
     private static final komenModel ourInstance = new komenModel();
-    public String userKomen;
+    public String userKomen; //membuat variable
 
-    public String komentar;
+    public String komentar; //membuat variable
 
     public komenModel() {
 
@@ -16,8 +16,8 @@ public class komenModel {
 
     public komenModel(String userKomen, String komentar) {
 
-        this.userKomen = userKomen;
-        this.komentar= komentar;
+        this.userKomen = userKomen; //refrensi variable
+        this.komentar= komentar; //refrensi variable
 
     }
 

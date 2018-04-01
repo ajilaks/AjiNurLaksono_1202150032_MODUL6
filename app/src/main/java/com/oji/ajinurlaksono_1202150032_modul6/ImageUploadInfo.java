@@ -6,10 +6,10 @@ package com.oji.ajinurlaksono_1202150032_modul6;
 
 public class ImageUploadInfo {
 
-    public String imageName;
+    public String imageName; //inisiasi variable
 
-    public String imageURL;
-    public String userImage;
+    public String imageURL; //inisiasi variable
+    public String userImage; //inisiasi variable
 
     public ImageUploadInfo() {
 
@@ -17,9 +17,9 @@ public class ImageUploadInfo {
 
     public ImageUploadInfo(String name, String url, String user) {
 
-        this.imageName = name;
-        this.imageURL= url;
-        this.userImage = user;
+        this.imageName = name; //refrensi variable
+        this.imageURL= url; //refrensi variable
+        this.userImage = user;//refrensi variable
     }
 
     public String getImageName() {
