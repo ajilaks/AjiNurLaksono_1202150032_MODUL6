@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:padding="5dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context="com.oji.ajinurlaksono_1202150032_modul6.DetailGambar">
 
     <LinearLayout
@@ -48,6 +51,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <EditText
+        android:focusedByDefault="false"
+        android:id="@+id/komentr"
         android:hint="Tulis Komentar..."
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -61,4 +66,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/recyclerViewKomen"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
 </LinearLayout>

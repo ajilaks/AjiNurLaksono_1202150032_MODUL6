@@ -39,35 +39,35 @@ public class Dasboard extends AppCompatActivity {
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    public static String emailUser;
-    private ViewPager mViewPager;
-    private SectionsPageAdapter mSectionsPageAdapter;
-    FirebaseAuth firebaseAuth ;
-    FirebaseUser firebaseUser;
+    public static String emailUser; //inisiasi variable
+    private ViewPager mViewPager; //inisiasi variable
+    private SectionsPageAdapter mSectionsPageAdapter; //inisiasi variable
+    FirebaseAuth firebaseAuth ; //inisiasi variable
+    FirebaseUser firebaseUser; //inisiasi variable
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dasboard);
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        firebaseAuth = FirebaseAuth.getInstance(); //referensi variable
+        firebaseUser = firebaseAuth.getCurrentUser(); //referensi variable
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); //referensi variable
+        setSupportActionBar(toolbar); //referensi variable
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
 
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-setupViewPager(mViewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        mViewPager = (ViewPager) findViewById(R.id.container); //referensi variable
+setupViewPager(mViewPager); //referensi variable
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs); //referensi variable
+        tabLayout.setupWithViewPager(mViewPager); //referensi variable
 
         //mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         //tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);// button ke tambah gambar
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,12 +76,12 @@ setupViewPager(mViewPager);
 
             }
         });
-        firebaseUser = firebaseAuth.getCurrentUser();
-        emailUser = firebaseUser.getEmail().toString();
+        firebaseUser = firebaseAuth.getCurrentUser(); //referensi variable
+        emailUser = firebaseUser.getEmail().toString(); //referensi variable
 
 
     }
-
+        //method untuk Tabbed Fragment
     public void setupViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1(),"Terbaru");

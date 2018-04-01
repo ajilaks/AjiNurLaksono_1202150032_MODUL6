@@ -35,7 +35,10 @@
             android:label="@string/title_activity_dasboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignUp" android:parentActivityName=".Login"/>
-        <activity android:name=".DetailGambar" android:parentActivityName=".Dasboard"></activity>
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name=".DetailGambar" android:parentActivityName=".Dasboard"
+            ></activity>
     </application>
 
 </manifest>

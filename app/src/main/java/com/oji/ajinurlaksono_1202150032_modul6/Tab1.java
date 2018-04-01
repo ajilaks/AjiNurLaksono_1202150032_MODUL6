@@ -83,7 +83,7 @@ public class Tab1 extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-
+                list.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
                     ImageUploadInfo imageUploadInfo = postSnapshot.getValue(ImageUploadInfo.class);
