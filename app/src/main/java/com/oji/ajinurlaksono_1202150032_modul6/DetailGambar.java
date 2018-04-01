@@ -58,7 +58,7 @@ public class DetailGambar extends AppCompatActivity {
 
         // Setting RecyclerView layout as LinearLayout.
         recyclerView.setLayoutManager(new LinearLayoutManager(DetailGambar.this)); //referensi variable
-        Toast.makeText(DetailGambar.this, Dasboard.emailUser, Toast.LENGTH_SHORT).show(); //referensi variable
+       // Toast.makeText(DetailGambar.this, Dasboard.emailUser, Toast.LENGTH_SHORT).show(); //referensi variable
         //
         Intent i = getIntent(); //referensi variable
         String url = i.getStringExtra("url"); //referensi variable dari intent
