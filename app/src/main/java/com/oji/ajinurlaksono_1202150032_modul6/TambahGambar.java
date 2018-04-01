@@ -30,7 +30,7 @@ import java.io.IOException;
 public class TambahGambar extends AppCompatActivity {
 
     // Folder path for Firebase Storage.
-    String Storage_Path = "gambar/";
+    String Storage_Path = "feed/";
 
     // Root Database Name for Firebase Database.
     public static final String Database_Path = "popotoanoji";
@@ -71,7 +71,7 @@ public class TambahGambar extends AppCompatActivity {
         ChooseButton = (Button)findViewById(R.id.ButtonChooseImage);
         UploadButton = (Button)findViewById(R.id.ButtonUploadImage);
 
-        DisplayImageButton = (Button)findViewById(R.id.DisplayImagesButton);
+       // DisplayImageButton = (Button)findViewById(R.id.DisplayImagesButton);
 
         // Assign ID's to EditText.
         ImageName = (EditText)findViewById(R.id.ImageNameEditText);
@@ -107,19 +107,12 @@ public class TambahGambar extends AppCompatActivity {
                 // Calling method to upload selected image on Firebase storage.
                 UploadImageFileToFirebaseStorage();
 
-            }
-        });
-
-
-        DisplayImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(TambahGambar.this, MainActivity.class);
-                startActivity(intent);
 
             }
         });
+
+
+
     }
 
     @Override
@@ -193,13 +186,15 @@ public class TambahGambar extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
 
                             @SuppressWarnings("VisibleForTests")
-                            ImageUploadInfo imageUploadInfo = new ImageUploadInfo(TempImageName, taskSnapshot.getDownloadUrl().toString());
+                            FeedData imageUploadInfo = new FeedData(TempImageName, taskSnapshot.getDownloadUrl().toString(),Dasboard.emailUser);
 
                             // Getting image upload ID.
                             String ImageUploadId = databaseReference.push().getKey();
 
                             // Adding image upload id s child element into databaseReference.
                             databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
+                            Intent i = new Intent(TambahGambar.this,Dasboard.class);
+                            startActivity(i);
                         }
                     })
                     // If something goes wrong .
@@ -225,11 +220,11 @@ public class TambahGambar extends AppCompatActivity {
 
                         }
                     });
+
         }
         else {
 
             Toast.makeText(TambahGambar.this, "Please Select Image or Add Image Name", Toast.LENGTH_LONG).show();
-
         }
     }
 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.oji.ajinurlaksono_1202150032_modul6.DetailGambar">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_akun"
+    />
+<TextView
+    android:id="@+id/useremail"
+    android:layout_marginLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="asas"
+    android:textSize="18dp"
+    />
+    </LinearLayout>
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/detailGambar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        />
+    <TextView
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:text="Dummy"
+        android:layout_gravity="center"
+        android:id="@+id/detailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <EditText
+        android:hint="Tulis Komentar..."
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="post"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="Post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+</LinearLayout>

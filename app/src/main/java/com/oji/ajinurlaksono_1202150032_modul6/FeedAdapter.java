@@ -1,7 +1,7 @@
 package com.oji.ajinurlaksono_1202150032_modul6;
 
 /**
- * Created by OJI on 30/03/2018.
+ * Created by OJI on 31/03/2018.
  */
 
 import android.content.Context;
@@ -22,13 +22,12 @@ import java.util.List;
  * Created by AndroidJSon.com on 6/18/2017.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     String useremail;
-    String url;
     Context context;
-    List<ImageUploadInfo> MainImageUploadInfoList;
+    List<FeedData> MainImageUploadInfoList;
 
-    public RecyclerViewAdapter(Context context, List<ImageUploadInfo> TempList) {
+    public FeedAdapter(Context context, List<FeedData> TempList) {
 
         this.MainImageUploadInfoList = TempList;
 
@@ -38,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(view);
 
@@ -47,16 +46,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ImageUploadInfo UploadInfo = MainImageUploadInfoList.get(position);
-        holder.tUser.setText(UploadInfo.getUserImage());
+        FeedData UploadInfo = MainImageUploadInfoList.get(position);
         holder.imageNameTextView.setText(UploadInfo.getImageName());
-        url = UploadInfo.getImageURL();
+        holder.user.setText(Dasboard.emailUser);
         useremail = UploadInfo.getUserImage();
-
         //Loading image from Glide library.
-        Glide.with(context).load(url).into(holder.imageView);
+        Glide.with(context).load(UploadInfo.getImageURL()).into(holder.imageView);
     }
-
 
     @Override
     public int getItemCount() {
@@ -64,17 +60,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return MainImageUploadInfoList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView tUser;
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView user;
         public ImageView imageView;
         public TextView imageNameTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
-            tUser = (TextView) itemView.findViewById(R.id.user1);
-            imageNameTextView = (TextView) itemView.findViewById(R.id.ImageNameTextView);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView1);
+            user = (TextView) itemView.findViewById(R.id.user);
+            imageNameTextView = (TextView) itemView.findViewById(R.id.ImageNameTextView1);
             itemView.setOnClickListener(this);
         }
 
@@ -90,8 +86,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             i.putExtra("url",uri);
             i.putExtra("nama",nama);
             view.getContext().startActivity(i);
-
-
         }
     }
 }

@@ -1,21 +1,22 @@
 package com.oji.ajinurlaksono_1202150032_modul6;
 
 /**
- * Created by OJI on 30/03/2018.
+ * Created by OJI on 31/03/2018.
  */
 
-public class ImageUploadInfo {
+public class FeedData {
+    private static final FeedData ourInstance = new FeedData();
 
     public String imageName;
 
     public String imageURL;
     public String userImage;
 
-    public ImageUploadInfo() {
+    public FeedData() {
 
     }
 
-    public ImageUploadInfo(String name, String url, String user) {
+    public FeedData(String name, String url, String user) {
 
         this.imageName = name;
         this.imageURL= url;
@@ -32,5 +33,4 @@ public class ImageUploadInfo {
     public String getUserImage() {
         return userImage;
     }
-
 }

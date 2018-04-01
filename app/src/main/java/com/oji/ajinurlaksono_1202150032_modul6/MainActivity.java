@@ -1,17 +1,24 @@
 package com.oji.ajinurlaksono_1202150032_modul6;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +29,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    // Creating button.
+    Button logout ;
 
+    // Creating TextView.
+    TextView userEmailShow ;
+
+    // Creating FirebaseAuth.
+    FirebaseAuth firebaseAuth ;
+
+    // Creating FirebaseAuth.
+    FirebaseUser firebaseUser;
     // Creating DatabaseReference.
     DatabaseReference databaseReference;
 
@@ -44,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Setting RecyclerView layout as LinearLayout.
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         // Assign activity this to progress dialog.
         progressDialog = new ProgressDialog(MainActivity.this);
 
@@ -88,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     list.add(imageUploadInfo);
                 }
 
-                adapter = new RecyclerViewAdapter(getApplicationContext(), list);
+                adapter = new RecyclerViewAdapter(MainActivity.this, list);
 
                 recyclerView.setAdapter(adapter);
 
@@ -123,6 +141,17 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            // Destroying login season.
+                    firebaseAuth.signOut();
+
+            // Finishing current User Profile activity.
+            finish();
+
+            // Redirect to Login Activity after click on logout button.
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+
             return true;
         }
 

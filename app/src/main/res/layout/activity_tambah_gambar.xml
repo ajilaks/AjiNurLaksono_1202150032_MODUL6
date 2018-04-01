@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Firebase Image Upload Tutorial"
+        android:text="Upload Gambar"
         android:id="@+id/textview"
         android:textStyle="bold"
         android:textSize="20dp"
@@ -46,14 +46,8 @@
         android:id="@+id/ButtonUploadImage"
         android:layout_below="@+id/ImageNameEditText"
         android:layout_marginTop="20dp"
-        android:text="Upload image to Firebase Storage"/>
+        android:text="Upload Image"/>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:id="@+id/DisplayImagesButton"
-        android:layout_below="@+id/ButtonUploadImage"
-        android:text="Show All Uploaded Images"/>
+
 
 </RelativeLayout>

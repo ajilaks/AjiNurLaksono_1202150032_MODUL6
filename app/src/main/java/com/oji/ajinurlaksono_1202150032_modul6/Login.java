@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
             finish();
 
             // Opening UserProfileActivity .
-            Intent intent = new Intent(Login.this, MainActivity.class);
+            Intent intent = new Intent(Login.this, Dasboard.class);
             startActivity(intent);
         }
 
@@ -131,7 +131,7 @@ public class Login extends AppCompatActivity {
 
 
                             // Opening the UserProfileActivity.
-                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            Intent intent = new Intent(Login.this, Dasboard.class);
                             startActivity(intent);
                         }
                         else {
@@ -169,5 +169,10 @@ public class Login extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public void signup(View view) {
+        Intent i = new Intent(this, SignUp.class);
+        startActivity(i);
     }
 }
